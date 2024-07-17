@@ -71,7 +71,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
 
   return (
     <div className="relative">
-      <div className="grid grid-cols-4 gap-2 sm:gap-4 p-2 sm:p-4">
+      <div className="grid grid-cols-4 gap-2 sm:gap-4 p-0">
         {shuffledWords.map((word, index) => (
           <WordCard
             key={index}
