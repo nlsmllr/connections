@@ -24,6 +24,8 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
   const [showResult, setShowResult] = useState<boolean>(false);
   const [showYay, setShowYay] = useState<boolean>(false);
   const [correctGroups, setCorrectGroups] = useState<number>(0);
+  const [lives, setLives] = useState(3);
+
 
   useEffect(() => {
     const allWords = wordGroups.flat();
@@ -62,6 +64,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
         setSelectedWords([]); // Clear selected words
       }, 700); // Hide the result after 0.7 seconds
     } else {
+      setLives(lives => lives - 1); // Decrement lives on incorrect answer
       setTimeout(() => {
         setShowResult(false);
         setSelectedWords([]); // Clear selected words after showing the result
@@ -84,15 +87,19 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       <div className="flex justify-center mt-4">
         <button
           onClick={checkWords}
-          className={`px-2 py-1 md:mt-0 mt-12 sm:px-4 sm:py-2 text-black rounded ${
-            selectedWords.length === 4
+          className={`px-2 py-1 md:mt-0 mt-12 sm:px-4 sm:py-2 text-black rounded ${selectedWords.length === 4
               ? 'bg-emerald-800 transition-colors duration-500 md:hover:bg-amber-500 font-semibold uppercase cursor-pointer'
               : 'bg-red-500 uppercase font-semibold cursor-not-allowed'
-          }`}
+            }`}
           disabled={selectedWords.length !== 4}
         >
           Check Words
         </button>
+      </div>
+      <div className="flex justify-center mt-4">
+        {Array.from({ length: lives }, (_, i) => (
+          <span key={i} className="h-3 w-3 bg-blue-500 rounded-full mx-1"></span>
+        ))}
       </div>
       {showResult && (
         <div
@@ -118,6 +125,6 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       )}
     </div>
   );
-};
+}
 
 export default WordCardGrid;

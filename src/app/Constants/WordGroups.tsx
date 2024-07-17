@@ -23,6 +23,7 @@ export const wordGroups: string[][] = [
   ['Elephant', 'Giraffe', 'Kangaroo', 'Panda'], // Zoo animals
   ['Python', 'JavaScript', 'Java', 'C++'], // Programming languages
   ['Nike', 'Adidas', 'Puma', 'Reebok'], // Sportswear brands
+  ['Hamburger', 'Pizza', 'Sushi', 'Taco'], // Popular foods
   ['Hamburger', 'Pizza', 'Sushi', 'Taco'] // Popular foods
 
 ];
