@@ -22,7 +22,7 @@ export default function App() {
   }, []);
 
  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-900 p-4 overflow-hidden">
+    <div className="flex flex-col items-center justify-center md:min-h-screen min-h-[80vh] bg-zinc-900 p-4 overflow-hidden">
       <h1 className='text-2xl md:text-4xl uppercase font-bold pb-4 text-zinc-500'>Connections</h1>
       <WordCardGrid wordGroups={selectedWordGroups} onNewWordGroups={fetchNewWordGroups} />
     </div>
