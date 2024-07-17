@@ -23,7 +23,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
   const [showResult, setShowResult] = useState<boolean>(false);
   const [showYay, setShowYay] = useState<boolean>(false);
   const [correctGroups, setCorrectGroups] = useState<number>(0);
-  const [lives, setLives] = useState(1);
+  const [lives, setLives] = useState(5);
   const [showGameOver, setShowGameOver] = useState(false);
 
   useEffect(() => {
