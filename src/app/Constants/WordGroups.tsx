@@ -104,5 +104,4 @@ export const wordGroups: string[][] = [
   ['Thor', 'Odin', 'Loki', 'Freyja'], // Norse gods
   ['Iliad', 'Odyssey', 'Aeneid', 'Metamorphoses'], // Epic poems
   ['Valhalla', 'Elysium', 'Hades', 'Asphodel'], // Mythological afterlives
-  ['Graphite', 'Diamond', 'Buckminsterfullerene', 'Graphene'], // Forms of carbon
 ];
