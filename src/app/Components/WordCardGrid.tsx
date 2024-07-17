@@ -43,42 +43,41 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
     const isSameGroup = wordGroups.some(group =>
       selectedWords.every(word => group.includes(word))
     );
+
     setResult(isSameGroup ? 'Correct!' : 'Incorrect!');
-    setShowResult(true);
+    setShowResult(true); // Show result
+
+    setTimeout(() => { // Always hide result after 1 second, regardless of the outcome
+      setShowResult(false);
+    }, 1000);
 
     if (isSameGroup) {
       setShuffledWords(prevWords => prevWords.filter(word => !selectedWords.includes(word)));
       setCorrectGroups(prev => prev + 1);
 
-      setTimeout(() => {
-        setShowResult(false);
-        if (correctGroups + 1 === wordGroups.length) {
-          setShowYay(true);
+      if (correctGroups + 1 === wordGroups.length) {
+        setShowYay(true);
+        setTimeout(() => {
+          setShowYay(false);
           setLives(lives => lives + 1); // Add a life when all groups are correctly solved
-          setTimeout(() => {
-            setShowYay(false);
-            setCorrectGroups(0);
-            onNewWordGroups();
-          }, 1000);
-        }
-        setSelectedWords([]);
-      }, 700);
+          setCorrectGroups(0);
+          onNewWordGroups(); // Refresh to get new word groups
+        }, 1000);
+      }
+      setSelectedWords([]);
     } else {
       setLives(lives => {
         if (lives - 1 === 0) {
-          setShowResult(false); // Hide result immediately if last life is lost
-          setTimeout(() => setShowGameOver(true), 0); // Display the game over overlay
+          setTimeout(() => setShowGameOver(true), 500); // Delay the game over overlay if last life is lost
+          return 0;
         }
         return lives - 1;
       });
-      setTimeout(() => {
-        if (!showGameOver) {
-          setShowResult(true);
-        }
-        setSelectedWords([]);
-      }, 700);
+      setSelectedWords([]);
     }
   };
+
+
 
   return (
     <div className="relative">
@@ -95,11 +94,10 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       <div className="flex justify-center mt-4">
         <button
           onClick={checkWords}
-          className={`px-2 py-1 md:mt-0 mt-12 sm:px-4 sm:py-2 text-black rounded ${
-            selectedWords.length === 4
-              ? 'bg-emerald-800 transition-colors duration-500 md:hover:bg-amber-500 font-semibold uppercase cursor-pointer'
-              : 'bg-red-500 uppercase font-semibold cursor-not-allowed'
-          }`}
+          className={`px-2 py-1 md:mt-0 mt-12 sm:px-4 sm:py-2 text-black rounded ${selectedWords.length === 4
+            ? 'bg-emerald-800 transition-colors duration-500 md:hover:bg-amber-500 font-semibold uppercase cursor-pointer'
+            : 'bg-red-500 uppercase font-semibold cursor-not-allowed'
+            }`}
           disabled={selectedWords.length !== 4}
         >
           Check Words
@@ -118,7 +116,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       )}
       {showResult && !showGameOver && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50"
           style={{
             opacity: showResult ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out'
@@ -129,7 +127,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       )}
       {showYay && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50"
           style={{
             opacity: showYay ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out'
