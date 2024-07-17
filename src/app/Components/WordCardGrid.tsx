@@ -44,6 +44,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       selectedWords.every(word => group.includes(word))
     );
     setResult(isSameGroup ? 'Correct!' : 'Incorrect!');
+    setShowResult(true);
 
     if (isSameGroup) {
       setShuffledWords(prevWords => prevWords.filter(word => !selectedWords.includes(word)));
@@ -53,6 +54,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
         setShowResult(false);
         if (correctGroups + 1 === wordGroups.length) {
           setShowYay(true);
+          setLives(lives => lives + 1); // Add a life when all groups are correctly solved
           setTimeout(() => {
             setShowYay(false);
             setCorrectGroups(0);
@@ -65,7 +67,7 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       setLives(lives => {
         if (lives - 1 === 0) {
           setShowResult(false); // Hide result immediately if last life is lost
-          setTimeout(() => setShowGameOver(true), 0); // Delay the game over overlay
+          setTimeout(() => setShowGameOver(true), 0); // Display the game over overlay
         }
         return lives - 1;
       });
