@@ -116,18 +116,18 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       )}
       {showResult && !showGameOver && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50"
+          className="fixed inset-0 flex items-center uppercase justify-center bg-black bg-opacity-85 z-50"
           style={{
             opacity: showResult ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out'
           }}
         >
-          <div className="text-white text-xl sm:text-2xl">{result}</div>
+          <div className="text-white uppercase text-xl sm:text-2xl">{result}</div>
         </div>
       )}
       {showYay && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50"
+          className="fixed inset-0 uppercase flex items-center justify-center bg-black bg-opacity-85 z-50"
           style={{
             opacity: showYay ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out'
