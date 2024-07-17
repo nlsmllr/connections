@@ -60,7 +60,7 @@ export const wordGroups: string[][] = [
   ['Goethe', 'Schiller', 'Kant', 'Nietzsche'], // German philosophers/writers
   ['Cyclone', 'Typhoon', 'Hurricane', 'Tornado'], // Storm types
   ['Sonata', 'Symphony', 'Concerto', 'Overture'], // Musical compositions
-  ['Kafka', 'Zookeeper', 'Pig', 'Producer'], // Server software
+  // ['Kafka', 'Zookeeper', 'Pig', 'Producer'], // Server software
   ['Nike', 'Adidas', 'Reebok', 'Puma'], // Sportswear brands
   ['Euler', 'Gauss', 'Fermat', 'Poincaré'], // Mathematicians
   ['Byzantine', 'Romanesque', 'Gothic', 'Baroque'], // Architectural styles
