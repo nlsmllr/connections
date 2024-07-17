@@ -24,4 +24,5 @@ export const wordGroups: string[][] = [
   ['Python', 'JavaScript', 'Java', 'C++'], // Programming languages
   ['Nike', 'Adidas', 'Puma', 'Reebok'], // Sportswear brands
   ['Hamburger', 'Pizza', 'Sushi', 'Taco'] // Popular foods
+
 ];
