@@ -53,8 +53,3 @@ tailwind.config.js
 .next-env.d.ts
 *.tsbuildinfo
 tsconfig.tsbuildinfo
-
-# Ignore lock files
-
-
-

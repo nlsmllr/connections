@@ -84,10 +84,10 @@ const WordCardGrid: React.FC<WordCardGridProps> = ({ wordGroups, onNewWordGroups
       <div className="flex justify-center mt-4">
         <button
           onClick={checkWords}
-          className={`px-2 py-1 sm:px-4 sm:py-2 text-white rounded ${
+          className={`px-2 py-1 md:mt-0 mt-12 sm:px-4 sm:py-2 text-black rounded ${
             selectedWords.length === 4
-              ? 'bg-slate-500 hover:bg-slate-600 cursor-pointer'
-              : 'bg-gray-400 cursor-not-allowed'
+              ? 'bg-emerald-800 transition-colors duration-500 md:hover:bg-amber-500 font-semibold uppercase cursor-pointer'
+              : 'bg-red-500 uppercase font-semibold cursor-not-allowed'
           }`}
           disabled={selectedWords.length !== 4}
         >

@@ -21,9 +21,9 @@ export default function App() {
     fetchNewWordGroups();
   }, []);
 
-  return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
-      <h1 className='text-2xl md:text-4xl uppercase font-bold pb-4 pt-10 text-slate-900'>Connections</h1>
+ return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-900 p-4 overflow-hidden">
+      <h1 className='text-2xl md:text-4xl uppercase font-bold pb-4 text-zinc-500'>Connections</h1>
       <WordCardGrid wordGroups={selectedWordGroups} onNewWordGroups={fetchNewWordGroups} />
     </div>
   );
