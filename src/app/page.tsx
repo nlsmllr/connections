@@ -26,7 +26,7 @@ export default function App() {
 
 
  return (
-    <div className="flex flex-col items-center mt-12 md:mt-12 min-h-[85vh] bg-zinc-900 md:p-4 p-1 overflow-hidden">
+    <div className="flex flex-col items-center mt-12 md:mt-12 bg-zinc-900 md:p-4 p-1 overflow-hidden">
       <button onClick={toggleInfo} className="z-50 border border-zinc-500 rounded-full py-1 px-[14px] absolute top-4 right-4 p-2 text-zinc-500 hover:text-zinc-300">
         i
       </button>
