@@ -58,8 +58,5 @@ tsconfig.tsbuildinfo
 package-lock.json
 yarn.lock
 
-# Misc
-*.swp
-
 
 
