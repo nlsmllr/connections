@@ -55,8 +55,6 @@ tailwind.config.js
 tsconfig.tsbuildinfo
 
 # Ignore lock files
-package-lock.json
-yarn.lock
 
 
 
