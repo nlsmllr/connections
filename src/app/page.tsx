@@ -35,7 +35,7 @@ export default function App() {
           <div className="m-2 bg-zinc-900 p-8 md:p-12 rounded-xl md:rounded-lg text-white">
             <p>Find group of 4 that have something in common. Select by tapping.</p>
             <p>Enjoy the game!</p>
-            <button onClick={toggleInfo} className="text-black uppercase  font-semibold mt-8 px-4 py-2 bg-red-500 rounded hover:bg-amber-500 ">Close</button>
+            <button onClick={toggleInfo} className="bg-red-500 uppercase font-semibold px-2 py-1 mt-8 sm:px-4 sm:py-2 text-black rounded">Close</button>
           </div>
         </div>
       )}
